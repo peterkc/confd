@@ -19,6 +19,8 @@ curl -L -X PUT http://127.0.0.1:2379/v2/keys/prefix/upstream/app1 -d value=10.0.
 curl -L -X PUT http://127.0.0.1:2379/v2/keys/prefix/upstream/app2 -d value=10.0.1.11:8080
 curl -L -X PUT http://127.0.0.1:2379/v2/keys/prefix/nested/east/app1 -d value=10.0.1.10:8080
 curl -L -X PUT http://127.0.0.1:2379/v2/keys/prefix/nested/west/app2 -d value=10.0.1.11:8080
+curl -L -X PUT http://127.0.0.1:4001/v2/keys/with_under_scores -d value=value_with_underscores
+curl -L -X PUT http://127.0.0.1:4001/v2/keys/path_here/with/under_scores -d value=value_path_with_underscores
 
 # Run confd
 confd --onetime --log-level debug --confdir ./integration/confdir --backend etcd --node http://127.0.0.1:2379 --watch
